@@ -1,0 +1,6 @@
+{
+  "name": "ApexPersonal - Gestão de Alunos & Personal Trainer",
+  "description": "Aplicativo profissional para acompanhamento e gestão de alunos de personal trainer: evolução de carga, escala emocional subjetiva, avaliação física comparativa e calendário de aulas.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
