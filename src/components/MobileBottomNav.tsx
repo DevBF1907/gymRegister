@@ -43,7 +43,7 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
   if (viewMode === 'trainer') {
     return (
       <nav
-        className="sticky bottom-0 inset-x-0 z-30 bg-zinc-950/95 backdrop-blur-xl border-t border-zinc-850 pb-[max(0.6rem,env(safe-area-inset-bottom))] pt-1.5 px-2 shadow-[0_-8px_30px_rgba(0,0,0,0.7)] shrink-0 w-full"
+        className="sticky bottom-0 inset-x-0 z-30 bg-zinc-950/95 backdrop-blur-xl border-t border-zinc-800 pb-[max(0.6rem,env(safe-area-inset-bottom))] pt-1.5 px-2 shadow-[0_-8px_30px_rgba(0,0,0,0.7)] shrink-0 w-full"
         id="mobile-trainer-bottom-nav"
       >
         <div className="max-w-md mx-auto flex items-center justify-around relative">
@@ -162,7 +162,7 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
   // Student Mode Bottom Nav
   return (
     <nav
-      className="sticky bottom-0 inset-x-0 z-30 bg-zinc-950/95 backdrop-blur-xl border-t border-zinc-850 pb-[max(0.6rem,env(safe-area-inset-bottom))] pt-1.5 px-3 shadow-[0_-8px_30px_rgba(0,0,0,0.7)] shrink-0 w-full"
+      className="sticky bottom-0 inset-x-0 z-30 bg-zinc-950/95 backdrop-blur-xl border-t border-zinc-800 pb-[max(0.6rem,env(safe-area-inset-bottom))] pt-1.5 px-3 shadow-[0_-8px_30px_rgba(0,0,0,0.7)] shrink-0 w-full"
       id="mobile-student-bottom-nav"
     >
       <div className="max-w-md mx-auto flex items-center justify-between relative">

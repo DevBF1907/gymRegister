@@ -66,15 +66,15 @@ export const MobileProfileView: React.FC<MobileProfileViewProps> = ({
 
         {/* Quick Trainer Stats */}
         <div className="grid grid-cols-3 gap-2 mt-4 pt-4 border-t border-zinc-800/80 text-center">
-          <div className="bg-zinc-950/70 p-2.5 rounded-xl border border-zinc-850">
+          <div className="bg-zinc-950/70 p-2.5 rounded-xl border border-zinc-800">
             <span className="text-[10px] text-zinc-500 uppercase font-bold block">Alunos</span>
             <span className="text-base font-extrabold text-white">{students.length}</span>
           </div>
-          <div className="bg-zinc-950/70 p-2.5 rounded-xl border border-zinc-850">
+          <div className="bg-zinc-950/70 p-2.5 rounded-xl border border-zinc-800">
             <span className="text-[10px] text-zinc-500 uppercase font-bold block">Experiência</span>
             <span className="text-base font-extrabold text-emerald-400">{PERSONAL_INFO.experience}</span>
           </div>
-          <div className="bg-zinc-950/70 p-2.5 rounded-xl border border-zinc-850">
+          <div className="bg-zinc-950/70 p-2.5 rounded-xl border border-zinc-800">
             <span className="text-[10px] text-zinc-500 uppercase font-bold block">Especialidade</span>
             <span className="text-xs font-bold text-amber-400 truncate block">Hipertrofia</span>
           </div>
@@ -103,14 +103,14 @@ export const MobileProfileView: React.FC<MobileProfileViewProps> = ({
         <h3 className="text-xs font-bold text-zinc-400 uppercase tracking-wider mb-2">
           Contato Profissional
         </h3>
-        <div className="flex items-center justify-between text-xs p-2.5 rounded-xl bg-zinc-950/50 border border-zinc-850">
+        <div className="flex items-center justify-between text-xs p-2.5 rounded-xl bg-zinc-950/50 border border-zinc-800">
           <div className="flex items-center gap-2 text-zinc-300">
             <Phone className="w-4 h-4 text-emerald-400" />
             <span>{PERSONAL_INFO.phone}</span>
           </div>
           <span className="text-[10px] text-emerald-400 font-bold">WhatsApp</span>
         </div>
-        <div className="flex items-center justify-between text-xs p-2.5 rounded-xl bg-zinc-950/50 border border-zinc-850">
+        <div className="flex items-center justify-between text-xs p-2.5 rounded-xl bg-zinc-950/50 border border-zinc-800">
           <div className="flex items-center gap-2 text-zinc-300">
             <Mail className="w-4 h-4 text-cyan-400" />
             <span>{PERSONAL_INFO.email}</span>

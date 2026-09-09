@@ -94,7 +94,7 @@ export const MobileStudentSwitcherSheet: React.FC<MobileStudentSwitcherSheetProp
                   className={`w-full text-left p-3 rounded-2xl border transition-all flex items-center justify-between gap-3 cursor-pointer ${
                     isSelected
                       ? 'bg-emerald-500/15 border-emerald-500/50 shadow-sm shadow-emerald-500/10'
-                      : 'bg-zinc-950/70 border-zinc-850 hover:border-zinc-700 hover:bg-zinc-950'
+                      : 'bg-zinc-950/70 border-zinc-800 hover:border-zinc-700 hover:bg-zinc-950'
                   }`}
                 >
                   <div className="flex items-center gap-3">

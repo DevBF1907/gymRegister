@@ -20,7 +20,6 @@ import {
   saveAssessments,
   resetAllData
 } from './data/storage';
-import { Header } from './components/Header';
 import { TrainerDashboard } from './components/TrainerDashboard';
 import { StudentArea } from './components/StudentArea';
 import { EmotionalScaleModal } from './components/EmotionalScaleModal';
@@ -32,7 +31,7 @@ import { MobileBottomNav } from './components/MobileBottomNav';
 import { QuickActionBottomSheet } from './components/QuickActionBottomSheet';
 import { MobileStudentSwitcherSheet } from './components/MobileStudentSwitcherSheet';
 import { MobileDeviceSimulator } from './components/MobileDeviceSimulator';
-import { CheckCircle2, Dumbbell, HeartPulse, Activity } from 'lucide-react';
+import { CheckCircle2 } from 'lucide-react';
 
 export default function App() {
   // Master state with persistent storage
@@ -294,7 +293,7 @@ export default function App() {
           onSelectStudentTab={setMobileStudentTab}
           onOpenQuickActions={() => setIsQuickActionSheetOpen(true)}
           todayClassesCount={classes.filter(c => c.date === '2026-09-08' && c.status === 'agendada').length}
-          activeStudentsCount={students.filter(s => s.status === 'ativo').length}
+          activeStudentsCount={students.filter(s => s.plan.status === 'ativo').length}
           activeAlertsCount={emotionalCheckins.filter(c => c.score <= 7).length}
         />
 

@@ -50,7 +50,7 @@ export const MobileDeviceSimulator: React.FC<MobileDeviceSimulatorProps> = ({
         <div className="flex items-center gap-1.5 font-medium">
           <Smartphone className="w-4 h-4 text-emerald-400" />
           <span className="text-zinc-200 font-bold">Simulador Mobile</span>
-          <span className="text-[10px] px-1.5 py-0.2 bg-zinc-800 rounded text-zinc-400">iOS / Android</span>
+          <span className="text-[10px] px-1.5 py-0.5 bg-zinc-800 rounded text-zinc-400">iOS / Android</span>
         </div>
         <button
           onClick={onToggleEnabled}

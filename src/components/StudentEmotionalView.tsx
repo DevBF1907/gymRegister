@@ -144,7 +144,7 @@ export const StudentEmotionalView: React.FC<StudentEmotionalViewProps> = ({
               return (
                 <div
                   key={c.id}
-                  className="p-4 bg-zinc-950 rounded-xl border border-zinc-850 hover:border-zinc-700 transition flex flex-col sm:flex-row sm:items-center justify-between gap-3"
+                  className="p-4 bg-zinc-950 rounded-xl border border-zinc-800 hover:border-zinc-700 transition flex flex-col sm:flex-row sm:items-center justify-between gap-3"
                 >
                   <div className="space-y-1">
                     <div className="flex items-center gap-3">
@@ -155,7 +155,7 @@ export const StudentEmotionalView: React.FC<StudentEmotionalViewProps> = ({
                         {c.date.split('-').reverse().join('/')} às {c.time}
                       </span>
                       {c.tag && (
-                        <span className="text-[10px] px-2 py-0.5 rounded bg-zinc-850 text-zinc-300 border border-zinc-750">
+                        <span className="text-[10px] px-2 py-0.5 rounded bg-zinc-800 text-zinc-300 border border-zinc-700">
                           {c.tag}
                         </span>
                       )}

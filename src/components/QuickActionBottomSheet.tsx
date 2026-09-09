@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion } from 'motion/react';
 import {
   HeartPulse,
   Dumbbell,
@@ -7,35 +7,34 @@ import {
   Activity,
   X,
   Sparkles,
-  ChevronRight,
-  UserCheck
+  ChevronRight
 } from 'lucide-react';
-import { Student } from '../types';
+
+export type QuickActionType = 'emotional' | 'load' | 'booking' | 'assessment';
 
 interface QuickActionBottomSheetProps {
   isOpen: boolean;
   onClose: () => void;
-  viewMode: 'trainer' | 'student';
-  selectedStudent: Student;
-  onOpenEmotionalCheckin: () => void;
-  onOpenLoadProgression: () => void;
-  onOpenBooking: () => void;
-  onOpenAssessment: () => void;
+  onAction: (action: QuickActionType) => void;
+  selectedStudentName?: string;
 }
 
 export const QuickActionBottomSheet: React.FC<QuickActionBottomSheetProps> = ({
   isOpen,
   onClose,
-  viewMode,
-  selectedStudent,
-  onOpenEmotionalCheckin,
-  onOpenLoadProgression,
-  onOpenBooking,
-  onOpenAssessment
+  onAction,
+  selectedStudentName
 }) => {
   if (!isOpen) return null;
-
-  const actions = [
+  const actions: Array<{
+    id: QuickActionType;
+    title: string;
+    description: string;
+    icon: typeof HeartPulse;
+    badge: string;
+    gradient: string;
+    iconBg: string;
+  }> = [
     {
       id: 'emotional',
       title: 'Check-in de Bem-Estar (0 a 15)',
@@ -43,11 +42,7 @@ export const QuickActionBottomSheet: React.FC<QuickActionBottomSheetProps> = ({
       icon: HeartPulse,
       badge: 'Subjetivo',
       gradient: 'from-emerald-500/20 to-teal-500/10 border-emerald-500/30 text-emerald-400',
-      iconBg: 'bg-emerald-500/20 text-emerald-400',
-      onClick: () => {
-        onClose();
-        onOpenEmotionalCheckin();
-      }
+      iconBg: 'bg-emerald-500/20 text-emerald-400'
     },
     {
       id: 'load',
@@ -56,11 +51,7 @@ export const QuickActionBottomSheet: React.FC<QuickActionBottomSheetProps> = ({
       icon: Dumbbell,
       badge: 'Sobrecarga',
       gradient: 'from-amber-500/20 to-orange-500/10 border-amber-500/30 text-amber-400',
-      iconBg: 'bg-amber-500/20 text-amber-400',
-      onClick: () => {
-        onClose();
-        onOpenLoadProgression();
-      }
+      iconBg: 'bg-amber-500/20 text-amber-400'
     },
     {
       id: 'booking',
@@ -69,11 +60,7 @@ export const QuickActionBottomSheet: React.FC<QuickActionBottomSheetProps> = ({
       icon: CalendarPlus,
       badge: 'Agenda',
       gradient: 'from-cyan-500/20 to-blue-500/10 border-cyan-500/30 text-cyan-400',
-      iconBg: 'bg-cyan-500/20 text-cyan-400',
-      onClick: () => {
-        onClose();
-        onOpenBooking();
-      }
+      iconBg: 'bg-cyan-500/20 text-cyan-400'
     },
     {
       id: 'assessment',
@@ -82,29 +69,23 @@ export const QuickActionBottomSheet: React.FC<QuickActionBottomSheetProps> = ({
       icon: Activity,
       badge: 'Biometria',
       gradient: 'from-purple-500/20 to-rose-500/10 border-purple-500/30 text-purple-400',
-      iconBg: 'bg-purple-500/20 text-purple-400',
-      onClick: () => {
-        onClose();
-        onOpenAssessment();
-      }
+      iconBg: 'bg-purple-500/20 text-purple-400'
     }
   ];
 
   return (
-    <AnimatePresence>
-      <div className="fixed inset-0 z-50 flex items-end justify-center bg-black/80 backdrop-blur-sm transition-opacity">
-        {/* Backdrop click to close */}
-        <div
-          className="absolute inset-0"
-          onClick={onClose}
-          aria-hidden="true"
-        />
+    <div className="fixed inset-0 z-50 flex items-end justify-center bg-black/80 backdrop-blur-sm transition-opacity">
+      {/* Backdrop click to close */}
+      <div
+        className="absolute inset-0"
+        onClick={onClose}
+        aria-hidden="true"
+      />
 
         {/* Mobile Sheet Container */}
         <motion.div
           initial={{ y: '100%' }}
           animate={{ y: 0 }}
-          exit={{ y: '100%' }}
           transition={{ type: 'spring', damping: 26, stiffness: 300 }}
           className="relative z-10 w-full max-w-md bg-zinc-900 border-t border-zinc-800 rounded-t-[32px] p-5 pb-8 shadow-2xl overflow-hidden"
           id="quick-action-bottom-sheet"
@@ -124,7 +105,7 @@ export const QuickActionBottomSheet: React.FC<QuickActionBottomSheetProps> = ({
                 O que deseja registrar?
               </h3>
               <p className="text-[11px] text-zinc-400">
-                Aluno selecionado: <span className="text-zinc-200 font-semibold">{selectedStudent.name}</span>
+                Aluno selecionado: <span className="text-zinc-200 font-semibold">{selectedStudentName}</span>
               </p>
             </div>
 
@@ -144,7 +125,10 @@ export const QuickActionBottomSheet: React.FC<QuickActionBottomSheetProps> = ({
               return (
                 <button
                   key={act.id}
-                  onClick={act.onClick}
+                  onClick={() => {
+                    onAction(act.id);
+                    onClose();
+                  }}
                   className={`w-full text-left p-3.5 rounded-2xl border bg-gradient-to-r ${act.gradient} hover:brightness-110 active:scale-[0.98] transition-all flex items-center justify-between gap-3 cursor-pointer group`}
                   id={`quick-action-btn-${act.id}`}
                 >
@@ -173,12 +157,11 @@ export const QuickActionBottomSheet: React.FC<QuickActionBottomSheetProps> = ({
             })}
           </div>
 
-          <div className="mt-4 pt-3 border-t border-zinc-850 flex items-center justify-between text-[11px] text-zinc-500">
+          <div className="mt-4 pt-3 border-t border-zinc-800 flex items-center justify-between text-[11px] text-zinc-500">
             <span>ApexPersonal Mobile &bull; Toque para registrar</span>
             <span className="text-emerald-400 font-semibold">100% sincronizado</span>
           </div>
         </motion.div>
       </div>
-    </AnimatePresence>
   );
 };

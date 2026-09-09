@@ -94,7 +94,7 @@ export const StudentLoadView: React.FC<StudentLoadViewProps> = ({
                 className={`p-3 rounded-xl border text-left transition min-w-[180px] ${
                   isSelected
                     ? 'bg-zinc-900 border-amber-500 shadow-md ring-1 ring-amber-500'
-                    : 'bg-zinc-950/60 border-zinc-850 hover:border-zinc-700'
+                    : 'bg-zinc-950/60 border-zinc-800 hover:border-zinc-700'
                 }`}
               >
                 <span className="text-[10px] text-zinc-500 block uppercase font-medium">

@@ -130,7 +130,7 @@ export const StudentArea: React.FC<StudentAreaProps> = ({
         </div>
 
         {/* Shortcuts / Hub Central */}
-        <div className="grid grid-cols-5 gap-1 mt-3 pt-3 border-t border-zinc-850">
+        <div className="grid grid-cols-5 gap-1 mt-3 pt-3 border-t border-zinc-800">
           {tabs.map((tab) => {
             const Icon = tab.icon;
             const isActive = activeTab === tab.id;
@@ -142,7 +142,7 @@ export const StudentArea: React.FC<StudentAreaProps> = ({
                 className={`flex flex-col items-center justify-center py-2 px-1 rounded-xl text-center transition cursor-pointer ${
                   isActive
                     ? 'bg-emerald-500 text-zinc-950 font-bold shadow-sm'
-                    : 'bg-zinc-950/60 text-zinc-400 hover:text-white hover:bg-zinc-800/80 border border-zinc-850'
+                    : 'bg-zinc-950/60 text-zinc-400 hover:text-white hover:bg-zinc-800/80 border border-zinc-800'
                 }`}
                 id={`hub-tab-${tab.id}`}
               >

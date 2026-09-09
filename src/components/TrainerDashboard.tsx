@@ -21,6 +21,7 @@ import {
   Phone
 } from 'lucide-react';
 import { Student, ClassSession, LoadProgressionRecord, EmotionalCheckin, PhysicalAssessment } from '../types';
+import { PERSONAL_INFO } from '../data/mockData';
 import { MobileProfileView } from './MobileProfileView';
 import { TrainerAgendaView } from './TrainerAgendaView';
 import { TrainerEvolutionView } from './TrainerEvolutionView';
@@ -77,7 +78,7 @@ export const TrainerDashboard: React.FC<TrainerDashboardProps> = ({
     .slice(0, 2);
 
   // Active students count
-  const activeStudentsCount = students.filter(s => s.status === 'ativo').length;
+  const activeStudentsCount = students.filter(s => s.plan.status === 'ativo').length;
 
   // Filter students for the "Alunos" tab
   const filteredStudents = students.filter(s =>
@@ -179,7 +180,7 @@ export const TrainerDashboard: React.FC<TrainerDashboardProps> = ({
                       <h4 className="text-sm font-heading font-bold text-white truncate">
                         {s.name}
                       </h4>
-                      <span className="text-[10px] px-1.5 py-0.2 rounded bg-zinc-800 text-zinc-400 font-medium">
+                      <span className="text-[10px] px-1.5 py-0.5 rounded bg-zinc-800 text-zinc-400 font-medium">
                         {s.plan.name.split(' ')[0]}
                       </span>
                     </div>
@@ -216,7 +217,7 @@ export const TrainerDashboard: React.FC<TrainerDashboardProps> = ({
       <div className="flex items-center justify-between pt-1">
         <div>
           <h1 className="text-xl sm:text-2xl font-heading font-extrabold text-white tracking-tight">
-            Olá, Lucas
+            Olá, {PERSONAL_INFO.name.split(' ')[0]}
           </h1>
           <p className="text-xs text-zinc-400 mt-0.5">
             Terça-feira, 08 de Setembro
@@ -262,7 +263,7 @@ export const TrainerDashboard: React.FC<TrainerDashboardProps> = ({
                 {nextClass.studentName}
               </div>
               <div className="text-xs text-zinc-400">
-                {nextClass.focusTopic || 'Treino Personalizado'}
+                {nextClass.focus || 'Treino Personalizado'}
               </div>
             </div>
 
@@ -315,7 +316,7 @@ export const TrainerDashboard: React.FC<TrainerDashboardProps> = ({
                 onClick={() => onSelectStudent(c.studentId)}
                 className={`p-3 rounded-xl border transition flex items-center justify-between cursor-pointer ${
                   isDone
-                    ? 'bg-zinc-950/60 border-zinc-850/80 text-zinc-400'
+                    ? 'bg-zinc-950/60 border-zinc-800/80 text-zinc-400'
                     : isNext
                     ? 'bg-zinc-900/90 border-emerald-500/40 shadow-sm text-white'
                     : 'bg-zinc-900/80 border-zinc-800 hover:border-zinc-700 text-white'
@@ -330,7 +331,7 @@ export const TrainerDashboard: React.FC<TrainerDashboardProps> = ({
                     {c.studentName}
                   </span>
                   <span className="text-[11px] text-zinc-500 truncate hidden sm:inline">
-                    ({c.focusTopic})
+                    ({c.focus})
                   </span>
                 </div>
 

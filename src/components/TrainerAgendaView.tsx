@@ -119,7 +119,7 @@ export const TrainerAgendaView: React.FC<TrainerAgendaViewProps> = ({
 
       {/* Simple List of Classes */}
       {filteredClasses.length === 0 ? (
-        <div className="bg-zinc-900/40 border border-zinc-850 rounded-2xl p-8 text-center space-y-2">
+        <div className="bg-zinc-900/40 border border-zinc-800 rounded-2xl p-8 text-center space-y-2">
           <CalendarIcon className="w-8 h-8 text-zinc-600 mx-auto" />
           <p className="text-xs text-zinc-400 font-medium">Nenhuma aula agendada para este período.</p>
           <button
@@ -142,7 +142,7 @@ export const TrainerAgendaView: React.FC<TrainerAgendaViewProps> = ({
                 onClick={() => setSelectedClass(c)}
                 className={`w-full p-3.5 rounded-2xl border transition-all cursor-pointer flex items-center justify-between text-left ${
                   isDone
-                    ? 'bg-zinc-950/60 border-zinc-850/80 opacity-75'
+                    ? 'bg-zinc-950/60 border-zinc-800/80 opacity-75'
                     : 'bg-zinc-900/90 border-zinc-800 hover:border-emerald-500/50 shadow-sm'
                 }`}
                 id={`agenda-class-${c.id}`}
@@ -162,13 +162,13 @@ export const TrainerAgendaView: React.FC<TrainerAgendaViewProps> = ({
                         {c.studentName}
                       </span>
                       {isDone && (
-                        <span className="text-[10px] px-1.5 py-0.2 rounded bg-emerald-500/10 text-emerald-400 font-semibold border border-emerald-500/20">
+                        <span className="text-[10px] px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-semibold border border-emerald-500/20">
                           Concluída
                         </span>
                       )}
                     </div>
                     <p className="text-[11px] text-zinc-400 truncate mt-0.5">
-                      {c.focusTopic || 'Treino Personalizado'}
+                      {c.focus || 'Treino Personalizado'}
                     </p>
                   </div>
                 </div>
@@ -195,14 +195,14 @@ export const TrainerAgendaView: React.FC<TrainerAgendaViewProps> = ({
               id="agenda-class-action-sheet"
             >
               {/* Header */}
-              <div className="flex items-center justify-between border-b border-zinc-850 pb-3">
+              <div className="flex items-center justify-between border-b border-zinc-800 pb-3">
                 <div className="flex items-center gap-2.5">
                   <div className="w-9 h-9 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 font-bold text-xs">
                     {selectedClass.time}
                   </div>
                   <div>
                     <h3 className="font-heading font-bold text-sm text-white">{selectedClass.studentName}</h3>
-                    <p className="text-[11px] text-zinc-400">{selectedClass.focusTopic}</p>
+                    <p className="text-[11px] text-zinc-400">{selectedClass.focus}</p>
                   </div>
                 </div>
                 <button

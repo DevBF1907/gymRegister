@@ -113,22 +113,22 @@ export const StudentPlanView: React.FC<StudentPlanViewProps> = ({ student }) => 
           </h4>
 
           <div className="space-y-2 text-[11px] text-zinc-300">
-            <div className="flex items-center justify-between py-0.5 border-b border-zinc-850">
+            <div className="flex items-center justify-between py-0.5 border-b border-zinc-800">
               <span className="text-zinc-500">Objetivo Declarado</span>
               <span className="font-semibold text-white">{student.goal}</span>
             </div>
 
-            <div className="flex items-center justify-between py-0.5 border-b border-zinc-850">
+            <div className="flex items-center justify-between py-0.5 border-b border-zinc-800">
               <span className="text-zinc-500">Horário Preferencial</span>
               <span className="font-semibold text-white">{student.preferredTime}</span>
             </div>
 
-            <div className="flex items-center justify-between py-0.5 border-b border-zinc-850">
+            <div className="flex items-center justify-between py-0.5 border-b border-zinc-800">
               <span className="text-zinc-500">Contato de Emergência</span>
               <span className="font-semibold text-white">{student.emergencyContact}</span>
             </div>
 
-            <div className="flex items-center justify-between py-0.5 border-b border-zinc-850">
+            <div className="flex items-center justify-between py-0.5 border-b border-zinc-800">
               <span className="text-zinc-500">Condições de Saúde</span>
               <span className="font-semibold text-amber-300">
                 {student.healthConditions && student.healthConditions.length > 0

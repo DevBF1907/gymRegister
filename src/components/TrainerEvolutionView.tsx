@@ -232,7 +232,7 @@ export const TrainerEvolutionView: React.FC<TrainerEvolutionViewProps> = ({
         {historyDesc.length === 0 ? (
           <p className="text-xs text-zinc-500 text-center py-4">Nenhum treino registrado para este exercício.</p>
         ) : (
-          <div className="divide-y divide-zinc-850">
+          <div className="divide-y divide-zinc-800">
             {historyDesc.map((rec) => (
               <div key={rec.id} className="py-2.5 flex items-center justify-between text-xs">
                 <div className="flex items-center gap-2">
@@ -240,7 +240,7 @@ export const TrainerEvolutionView: React.FC<TrainerEvolutionViewProps> = ({
                     {formatDateDisplay(rec.date)}
                   </span>
                   {rec.isPersonalRecord && (
-                    <span className="px-1.5 py-0.2 rounded bg-amber-500/15 text-amber-400 text-[9px] font-extrabold border border-amber-500/30">
+                    <span className="px-1.5 py-0.5 rounded bg-amber-500/15 text-amber-400 text-[9px] font-extrabold border border-amber-500/30">
                       PR
                     </span>
                   )}

@@ -92,13 +92,13 @@ export const StudentCalendarView: React.FC<StudentCalendarViewProps> = ({
             <div className="flex items-center gap-1 bg-zinc-950 p-1 rounded-xl border border-zinc-800">
               <button
                 onClick={prevMonth}
-                className="p-1 text-zinc-400 hover:text-white rounded-lg hover:bg-zinc-850 transition"
+                className="p-1 text-zinc-400 hover:text-white rounded-lg hover:bg-zinc-800 transition"
               >
                 <ChevronLeft className="w-4 h-4" />
               </button>
               <button
                 onClick={nextMonth}
-                className="p-1 text-zinc-400 hover:text-white rounded-lg hover:bg-zinc-850 transition"
+                className="p-1 text-zinc-400 hover:text-white rounded-lg hover:bg-zinc-800 transition"
               >
                 <ChevronRight className="w-4 h-4" />
               </button>
@@ -143,7 +143,7 @@ export const StudentCalendarView: React.FC<StudentCalendarViewProps> = ({
                       ? 'bg-emerald-500/15 border-emerald-500 text-white font-bold ring-1 ring-emerald-500'
                       : isToday
                       ? 'bg-zinc-800/80 border-zinc-700 text-white'
-                      : 'bg-zinc-950/60 border-zinc-850/60 text-zinc-400 hover:border-zinc-700 hover:text-zinc-200'
+                      : 'bg-zinc-950/60 border-zinc-800/60 text-zinc-400 hover:border-zinc-700 hover:text-zinc-200'
                   }`}
                 >
                   <div className="flex items-center justify-between w-full px-0.5">
@@ -249,7 +249,7 @@ export const StudentCalendarView: React.FC<StudentCalendarViewProps> = ({
                     </div>
 
                     {c.trainerNotes && (
-                      <p className="text-[11px] text-zinc-400 italic bg-zinc-900 p-2 rounded-lg border border-zinc-850">
+                      <p className="text-[11px] text-zinc-400 italic bg-zinc-900 p-2 rounded-lg border border-zinc-800">
                         "{c.trainerNotes}"
                       </p>
                     )}
